@@ -1,6 +1,6 @@
 currentState = {
-    stage: 3,
-    supplies: 2
+    stage: 0,
+    supplies: 0
 } 
 /**
  * flow is an array accessed by flow[stage,supplies]
@@ -11,7 +11,7 @@ currentState = {
 const flow = [
     [ //stage 0
         { //supplies 0 (Since its the start, you can only have 0 supplies here)
-            question: "how much supplies do you want",
+            question: "how much supplies do you want to start",
             options: [
                 {
                     newSupplies: 0,
@@ -142,6 +142,7 @@ const flow = [
 ]
 
 //example of flow array accessing with log statements
+/* 
 console.log(flow[currentState.stage][currentState.supplies])
 console.log("current supplies: ",currentState.supplies)
 console.log(flow[currentState.stage][currentState.supplies]["question"])
@@ -149,7 +150,7 @@ options = flow[currentState.stage][currentState.supplies]["options"].forEach((op
     console.log(option.buttonText)
     console.log("button with nextQuestion(",option.newSupplies,")")
 });
-
+*/
 
 function nextQuestion(newSupplies){
     /**
@@ -166,4 +167,25 @@ function nextQuestion(newSupplies){
 function renderQuestion(){
     //renders the appropriate screen given the current stage and supplies level
 
+    //grab old objects
+    question = document.getElementById("question")
+    oldAnswerButtons = document.getElementsByClassName("next-btn")
+    //console.log(oldAnswerButtons)
+
+    //clears current stage of old content
+    question.innerHTML = ""
+    Array.from(oldAnswerButtons).forEach((element,index) => { //array.from converts getElements list to a real array
+        element.remove();
+    });
+
+    //grabs new state information from flow based on currentState
+    state = flow[currentState.stage][currentState.supplies]
+    questionText = state["question"]
+    options = state["options"]
+
+    //creates new HTML elements based on new state information
+    //question.innerHTML = questionText
+
 }
+
+renderQuestion()
