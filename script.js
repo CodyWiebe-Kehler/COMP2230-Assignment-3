@@ -11,19 +11,21 @@ currentState = {
 const flow = [
     [ //stage 0
         { //supplies 0 (Since its the start, you can only have 0 supplies here)
-            question: "how much supplies do you want to start",
+            question: `Congradulations, your officially the captain of your brand new spaceship!
+            In order to celebrate, you decide to take your ship on a trip to saturn. You suppose you
+            should pack some stuff first though. How much supplies do you choose to bring?`,
             options: [
                 {
                     newSupplies: 0,
-                    buttonText: "choose 0 supplies"
+                    buttonText: "I dont need supplies, Saturn here I come!"
                 },
                 {
                     newSupplies: 1,
-                    buttonText: "choose 1 supplies"
+                    buttonText: "I guess i should spend some time gathering food and fuel."
                 },
                 {
                     newSupplies: 2,
-                    buttonText: "choose 2 supplies"
+                    buttonText: "I will make sure I am adequetly prepared before going out."
                 }
             ]
         }
