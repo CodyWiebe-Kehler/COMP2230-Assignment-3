@@ -11,7 +11,7 @@ currentState = {
 const flow = [
     [ //stage 0
         { //supplies 0 (Since its the start, you can only have 0 supplies here)
-            question: `Congradulations, your officially the captain of your brand new spaceship!
+            question: `Congratulations, your officially the captain of your brand new spaceship!
             In order to celebrate, you decide to take your ship on a trip to saturn. You suppose you
             should pack some stuff first though. How much supplies do you choose to bring?`,
             options: [
@@ -41,103 +41,105 @@ const flow = [
                 },
                 {
                     newSupplies: 1,
-                    buttonText: "I should stop for "
+                    buttonText: `I should stop for food somewhere, maybe something from The Red Burger${String.fromCharCode(8482)}.`
                 }
             ]
         },
         { //supplies 1
-            question: "how much supplies do you want",
+            question: "You head out after grabbing some food and refueling the ship. Before long you find yourself feeling a bit hungry.",
             options: [
                 {
                     newSupplies: 0,
-                    buttonText: "choose 0 supplies"
+                    buttonText: "Im too busy to eat!"
                 },
                 {
                     newSupplies: 1,
-                    buttonText: "choose 1 supplies"
+                    buttonText: "I'll eat my food supplies so I do not have to stop."
                 },
                 {
                     newSupplies: 2,
-                    buttonText: "choose 2 supplies"
+                    buttonText: `I should stop for food somewhere and conserve my emergency food.
+                     Maybe something from The Red Burger${String.fromCharCode(8482)}?`
                 }
             ]
         },
         { //supplies 2
-            question: "how much supplies do you want",
+            question: "You spend your time making sure you have gathered everything you will need for your long trip. Once you have left you start to feel hungry.",
             options: [
                 {
                     newSupplies: 1,
-                    buttonText: "choose 1 supplies"
+                    buttonText: "I'll eat from my food supplies and save some time on my trip."
                 },
                 {
                     newSupplies: 2,
-                    buttonText: "choose 2 supplies"
+                    buttonText: `I should stop for food somewhere and conserve my emergency food.
+                     Maybe something from The Red Burger${String.fromCharCode(8482)}?`
                 }
             ]
         }
     ],
     [ //stage 2
         { //supplies 0
-            question: "how much supplies do you want",
+            question: "Your almost there, but your fuel tank is running low!",
             options: [
                 {
                     newSupplies: 0,
-                    buttonText: "choose 0 supplies ending"
+                    buttonText: "It will be ok, its just a little further..."
                 },
                 {
                     newSupplies: 1,
-                    buttonText: "choose 1 supplies ending"
+                    buttonText: "I should check for some emergency fuel in my storage."
                 }
             ]
         },
         { //supplies 1
-            question: "how much supplies do you want",
+            question: "Your fuel tank is looking a little bit empty, maybe you should stop and refuel?",
             options: [
                 {
                     newSupplies: 1,
-                    buttonText: "choose 1 supplies ending"
+                    buttonText: "I am sure it has enough fuel to make it to Saturn."
                 },
                 {
                     newSupplies: 2,
-                    buttonText: "choose 2 supplies ending"
+                    buttonText: "Topping up the tank would be a good decision."
                 }
             ]
         },
         { //supplies 2
-            question: "how much supplies do you want",
+            question: "You notice your fuel is running low.",
             options: [
                 {
                     newSupplies: 2,
-                    buttonText: "choose 2 supplies ending"
+                    buttonText: "Good thing I packed some extra fuel for the trip!"
                 }
             ]
         }
     ],
     [ //stage 3
         { //supplies 0
-            question: "0 supplies ending",
+            question: "Out of fuel and running low on food reserves, you realise you wont make it to Saturn. Begrudgingly you decide to call a tow ship for some help.",
             options: [
                 {
                     newSupplies: -1,
-                    buttonText: "reset game"
+                    buttonText: "Unfortunate. Next time maybe consider conserving your supplies better."
                 }
             ]
         },
         { //supplies 1
-            question: "1 supplies ending",
+            question: "Your fuel and food supplies barely made it to Saturn, the trip was longer than you thought! Saturns rings are beutiful, but you might need a tow home...",
             options: [
                 {
                     newSupplies: -1,
-                    buttonText: "reset game"
+                    buttonText: "Congratulations on making it to saturn! Consider retrying and conserving some more supplies"
                 }
             ]
         },
         { //supplies 2
-            question: "2 supplies ending",
+            question: "You make it to Saturn! With plenty of food and fuel to spare for the trip home too.",
             options: [
                 {
                     newSupplies: -1,
-                    buttonText: "reset game"
+                    buttonText: "Saturns rings are beutiful!"
                 }
             ]
         },
