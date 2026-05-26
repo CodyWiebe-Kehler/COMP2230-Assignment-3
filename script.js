@@ -115,7 +115,7 @@ const flow = [
             question: "0 supplies ending",
             options: [
                 {
-                    newSupplies: 0,
+                    newSupplies: -1,
                     buttonText: "reset game"
                 }
             ]
@@ -124,7 +124,7 @@ const flow = [
             question: "1 supplies ending",
             options: [
                 {
-                    newSupplies: 0,
+                    newSupplies: -1,
                     buttonText: "reset game"
                 }
             ]
@@ -133,7 +133,7 @@ const flow = [
             question: "2 supplies ending",
             options: [
                 {
-                    newSupplies: 0,
+                    newSupplies: -1,
                     buttonText: "reset game"
                 }
             ]
@@ -160,6 +160,11 @@ function nextQuestion(newSupplies){
 
     currentState.stage += 1
     currentState.supplies = newSupplies
+
+    if (newSupplies === -1){
+        currentState.stage = 0
+        currentState.supplies = 0
+    }
 
     renderQuestion()
 }
