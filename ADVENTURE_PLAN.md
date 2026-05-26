@@ -11,6 +11,14 @@
     - face decisions which raise or lower you supplies level
     - reach one of three endings based on supplies level at the end
 - every stage will list your current supplies, and choices to choose from based on an event
+- stage 0
+    - initial supplies amount
+- stage 1 
+    - food based choices
+- stage 2
+    - fuel based choices
+- stage 3
+    - ending descriptions
 
 ## Game State Planning
 

@@ -32,15 +32,16 @@ const flow = [
     ], 
     [ //stage 1
         { //supplies 0
-            question: "how much supplies do you want",
+            question: `You head out in a rush to explore the stars! Before long 
+            you find yourself a feeling a bit hungry.`,
             options: [
                 {
                     newSupplies: 0,
-                    buttonText: "choose 0 supplies"
+                    buttonText: "I'll be fine, I will not delay my trip any longer!"
                 },
                 {
                     newSupplies: 1,
-                    buttonText: "choose 1 supplies"
+                    buttonText: "I should stop for "
                 }
             ]
         },
