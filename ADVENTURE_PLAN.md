@@ -34,3 +34,13 @@
         - (3,0) = fail ending
         - (3,1) = medium ending
         - (3,2) = good ending
+
+### gameFlow JSON object
+
+- This object is used to find the question and possible options based your current state.
+- you access this object as follows
+    - flow[stage][currentSupplies] returns a dictionary of the following
+        - question: "the current event question text"
+        - options: [{},{},{}] an array of dictionaries, each dictionary represents a button that should be created, formatted as follows
+            - newSupplies: the number value that supplies should be set to next stage when this option is chosen
+            - buttonText: the text that represents the option the user choses by clicking this button
