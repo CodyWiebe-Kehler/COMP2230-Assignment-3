@@ -167,6 +167,31 @@ function nextQuestion(newSupplies){
 function renderQuestion(){
     //renders the appropriate screen given the current stage and supplies level
 
+    clearOldContent()
+
+    //grabs new state information from flow based on currentState
+    state = flow[currentState.stage][currentState.supplies]
+    questionText = state["question"]
+    options = state["options"]
+
+    //creates new HTML elements based on new state information
+    question = document.getElementById("question")
+    question.innerHTML = questionText
+
+    answersList = document.getElementById("answers")
+    options.forEach((option,index) => {
+        newButton = document.createElement("button")
+        newButton.setAttribute("class","next-btn")
+        newButton.setAttribute("onclick",`nextQuestion(${option.newSupplies})`)
+        newButton.innerHTML = option.buttonText
+
+        //appends to buttons list
+        answersList.appendChild(newButton)
+    });
+
+}
+
+function clearOldContent(){
     //grab old objects
     question = document.getElementById("question")
     oldAnswerButtons = document.getElementsByClassName("next-btn")
@@ -177,15 +202,6 @@ function renderQuestion(){
     Array.from(oldAnswerButtons).forEach((element,index) => { //array.from converts getElements list to a real array
         element.remove();
     });
-
-    //grabs new state information from flow based on currentState
-    state = flow[currentState.stage][currentState.supplies]
-    questionText = state["question"]
-    options = state["options"]
-
-    //creates new HTML elements based on new state information
-    //question.innerHTML = questionText
-
 }
 
 renderQuestion()
