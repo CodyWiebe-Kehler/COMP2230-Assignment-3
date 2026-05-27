@@ -17,7 +17,7 @@ const flow = [
             options: [
                 {
                     newSupplies: 0,
-                    buttonText: "I dont need supplies, Saturn here I come!"
+                    buttonText: "I don't need supplies, Saturn here I come!"
                 },
                 {
                     newSupplies: 1,
@@ -25,7 +25,7 @@ const flow = [
                 },
                 {
                     newSupplies: 2,
-                    buttonText: "I will make sure I am adequetly prepared before going out."
+                    buttonText: "I will make sure I am adequately prepared before going out."
                 }
             ]
         }
@@ -117,7 +117,7 @@ const flow = [
     ],
     [ //stage 3
         { //supplies 0
-            question: "Out of fuel and running low on food reserves, you realise you wont make it to Saturn. Begrudgingly you decide to call a tow ship for some help.",
+            question: "Out of fuel and running low on food reserves, you realize you wont make it to Saturn. Begrudgingly you decide to call a tow ship for some help.",
             options: [
                 {
                     newSupplies: -1,
@@ -139,7 +139,7 @@ const flow = [
             options: [
                 {
                     newSupplies: -1,
-                    buttonText: "Saturns rings are beutiful!"
+                    buttonText: "Saturn's rings are beautiful!"
                 }
             ]
         },
@@ -199,7 +199,7 @@ function renderQuestion(){
         answersList.appendChild(newButton)
     });
 
-    updateImages()
+    updateGraphics()
 
 }
 
@@ -216,9 +216,13 @@ function clearOldContent(){
     });
 }
 
-function updateImages(){
+function updateGraphics(){
+    //updates progress bar fill based on stage
+    progressBar = document.getElementById("progress-bar-fill")
+    progressBar.style.width = `${(currentState.stage)*33}%`
+    progressBar.style.backgroundColor = "rgb(84, 104, 255)"
+    //updates the images with the stage to make saturn moving closer
     saturn = document.getElementById("saturn-container")
-    //updates the images with the stage such as saturn moving closer
     if (currentState.stage === 0){
         saturn.style.height = "10%"; 
     }
@@ -230,9 +234,15 @@ function updateImages(){
     }
     else if (currentState.stage === 3){
         saturn.style.height = "200%"; 
+        progressBar.style.width = `100%`;
+        progressBar.style.backgroundColor = "green";
         //special case where on failure ending, you dont make it all the way to saturn
         if (currentState.supplies === 0){
+            //return saturn to stage 2 size
             saturn.style.height = "100%";
+            //dont completely fill progress bar
+            progressBar.style.width = `${(currentState.stage)*33}%`
+            progressBar.style.backgroundColor = "red";
         }
     }
 }
