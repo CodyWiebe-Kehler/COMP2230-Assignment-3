@@ -8,25 +8,36 @@ body {
     background-color: var(--background-colour);
     color: var(--text-colour);
     margin: 0;
+    overflow: hidden;/*allows the image of saturn (and all elements) to clip offscreen and not extend page size*/
 
     display: flex;
     justify-content: center;
 }
-#background-container{
+.background-container{
     position: absolute;
     z-index: -100; /*puts it behind everything else*/
     width: 100%;
     height: 100%;
 }
-#background-image{
+.background-image{
+    position: absolute;
+    z-index: inherit;
     width: 100%;
     height: 100%;
+}
+#background-border{
+    position: absolute;
+    z-index: -98; /*puts border in front of saturn*/
+    left: -2%;
+    top: -5%;
+    width: 104%;
+    height: 115%;
 }
 #background-citation{
     margin: 0;
     position: absolute;
     
-    bottom: 10px;
+    bottom: 4%;
     right: 10px;
 }
 #background-citation, #background-citation a{
@@ -37,17 +48,13 @@ body {
     /*wierd stuff to make svg's work*/
     position: absolute;
     background: url(/media/saturn-dan-gerhards-01-clipart.svg) no-repeat center;
-    z-index: -50;
-
-    /*these values can be changed in js to make it appear like its getting closer*/
-    width: 100px;
-    height: 100px;
+    z-index: -99; /*places saturn behind content and border but in front of background*/
+    aspect-ratio: 1/1; /*makes width = height so i only have to change one value is js*/
     top: 0%;
-    right: 10%;
-}
-#saturn-image{
-    width: 50;
-    height: 50;
+    /*default values for game start
+    can be changed in js to make it appear like its getting closer*/
+    height: 10%;
+
 }
 
 #game-container {

@@ -1,12 +1,12 @@
 currentState = {
-    stage: 0,
-    supplies: 0
+    stage: 3,
+    supplies: 1
 } 
 /**
  * flow is an array accessed by flow[stage,supplies]
  * output is an array of supplies values that are options for the next stage
  * Ex: at stage 1, supplies 1, you have 3 choices to go to: supplies 0,1, or 2
- *      so flow[1,1] returns [0,1,2]
+ *      so flow[1,1] returns dictionary containing content for stage 2 with supplies 0,1, or 2
  */
 const flow = [
     [ //stage 0
@@ -199,6 +199,8 @@ function renderQuestion(){
         answersList.appendChild(newButton)
     });
 
+    updateImages()
+
 }
 
 function clearOldContent(){
@@ -214,4 +216,25 @@ function clearOldContent(){
     });
 }
 
+function updateImages(){
+    saturn = document.getElementById("saturn-container")
+    //updates the images with the stage such as saturn moving closer
+    if (currentState.stage === 0){
+        saturn.style.height = "10%"; 
+    }
+    else if (currentState.stage === 1){
+        saturn.style.height = "50%"; 
+    }
+    else if (currentState.stage === 2){
+        saturn.style.height = "100%"; 
+    }
+    else if (currentState.stage === 3){
+        saturn.style.height = "200%"; 
+        //special case where on failure ending, you dont make it all the way to saturn
+        if (currentState.supplies === 0){
+            saturn.style.height = "100%";
+        }
+    }
+}
+//renders the first question on page load
 renderQuestion()
