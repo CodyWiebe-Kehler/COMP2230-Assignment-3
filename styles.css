@@ -51,10 +51,9 @@ body {
     z-index: -99; /*places saturn behind content and border but in front of background*/
     aspect-ratio: 1/1; /*makes width = height so i only have to change one value is js*/
     top: 0%;
-    /*default values for game start
+    /*default value for game start
     can be changed in js to make it appear like its getting closer*/
     height: 10%;
-
 }
 
 #game-container {

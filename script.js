@@ -1,6 +1,6 @@
 currentState = {
-    stage: 3,
-    supplies: 1
+    stage: 0,
+    supplies: 0
 } 
 /**
  * flow is an array accessed by flow[stage,supplies]
